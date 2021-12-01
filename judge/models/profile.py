@@ -178,7 +178,7 @@ class Profile(models.Model):
                              help_text=_('Notes for administrators regarding this user.'))
     data_last_downloaded = models.DateTimeField(verbose_name=_('last data download time'), null=True, blank=True)
     username_display_override = models.CharField(max_length=100, blank=True, verbose_name=_('display name override'),
-                                                 help_text=_('name displayed in place of username'))
+                                                 help_text=_('Name displayed in place of username'))
 
     @cached_property
     def organization(self):
