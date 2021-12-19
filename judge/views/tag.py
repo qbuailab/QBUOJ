@@ -212,6 +212,7 @@ class TagProblemAssign(LoginRequiredMixin, TagAllowingMixin, TagProblemMixin, Ti
 
     def form_valid(self, form):
         tags = form.cleaned_data['tags']
+        tag_count = 0
         for tag in tags:
             tag = get_object_or_404(Tag, code=tag)
             try:
@@ -221,9 +222,15 @@ class TagProblemAssign(LoginRequiredMixin, TagAllowingMixin, TagProblemMixin, Ti
 
                     revisions.set_comment(_('Assigned new tag %s from site') % tag.name)
                     revisions.set_user(self.request.user)
+
+                    # Increase tag count on success
+                    tag_count += 1
             except IntegrityError:
                 pass
         on_new_tag.delay(self.object.code, tags)
+
+        # On tag assign, update profile contribution points
+        self.request.profile.update_contribution_points(settings.VNOJ_CP_TAG * tag_count)
 
         return HttpResponseRedirect(self.object.get_absolute_url())
 

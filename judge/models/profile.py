@@ -250,9 +250,11 @@ class Profile(models.Model):
         count_good_tickets = Ticket.objects.filter(user=self.id, is_contributive=True) \
             .count()
         count_suggested_problem = self.suggested_problems.filter(is_public=True).count()
+        count_tag = self.tagdata_set.count()
         new_pp = total_comment_scores * settings.VNOJ_CP_COMMENT + \
             count_good_tickets * settings.VNOJ_CP_TICKET + \
-            count_suggested_problem * settings.VNOJ_CP_PROBLEM
+            count_suggested_problem * settings.VNOJ_CP_PROBLEM + \
+            count_tag * settings.VNOJ_CP_TAG
         if new_pp != old_pp:
             self.contribution_points = new_pp
             self.save(update_fields=['contribution_points'])
