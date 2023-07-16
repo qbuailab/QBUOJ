@@ -4549,7 +4549,7 @@ msgstr "dựa trên nền tảng %(dmoj)s"
 #: templates/base.html:355
 #, python-format
 msgid "follow us on %(github)s and %(facebook)s"
-msgstr "theo dõi VNOI trên %(github)s và %(facebook)s"
+msgstr "theo dõi QBUOJ trên %(github)s và %(facebook)s"
 
 #: templates/blog/blog-list-tabs.html:4
 msgid "Newsfeed"
@@ -4631,7 +4631,7 @@ msgstr "Báo cáo mới"
 
 #: templates/blog/list.html:111 templates/contest/list.html:192
 msgid "Ongoing contests"
-msgstr "Các kỳ thi đang diễn ra"
+msgstr "Kỳ thi đang diễn ra"
 
 #: templates/blog/list.html:119
 #, python-format
@@ -4640,7 +4640,7 @@ msgstr "Kết thúc trong %(countdown)s."
 
 #: templates/blog/list.html:129 templates/contest/list.html:229
 msgid "Upcoming contests"
-msgstr "Các kỳ thi sắp tới"
+msgstr "Kỳ thi sắp tới"
 
 #: templates/blog/list.html:137 templates/contest/contest.html:55
 #, python-format
